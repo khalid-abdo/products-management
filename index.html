@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>curd</title> 
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/curd.css">
+    <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+    <button class="dark" id="black">dark mood</button>
+    <button class="light" id="wihte">light mood</button>
+    <button  id="up">^</button>
+    <div class="curd">
+    <div class="head" id="header">
+        <h2>curd</h2>
+        <p>proudct management system</p>
+     </div>
+        
+       
+        
+      <div class="input">
+        <input type="text" id="title" placeholder="title">
+        <div class="price">
+            <input type="number" onkeyup="gettotal()" id="price" placeholder="price">
+            <input type="number" onkeyup="gettotal()" id="taxes" placeholder="taxes" >
+            <input type="number" onkeyup="gettotal()" id="ads" placeholder="ads">
+            <input type="number" onkeyup="gettotal()" id="discount" placeholder="discount">
+            <small id="total"></small>
+        </div>
+        <input type="number" id="count" placeholder="count">
+        <input type="text" id="category" placeholder="category">
+        <button id="submint">create</button>
+
+
+      </div>
+          
+        
+      <div class="output"> 
+        <div class="searchblok">
+            <input type="text" id="search" placeholder="search">
+            <div class="btnsearsh">
+                <button id="searchTitle">search by title</button>
+                <button id="searchCategory">search by category</button>
+            </div>
+        </div>
+        <div id="deleteall"></div>
+
+        <table id="tables">
+            <tr>
+                <th>id</th>
+                <th>title</th>
+                <th>price</th>
+                <th>taxes</th>
+                <th>ads</th>
+                <th>discount</th>
+                <th>totle</th>
+                <th>category</th>
+                <th>update</th>
+                <th>delete</th>
+            </tr>
+
+            <tbody id="tbody"> 
+                <tr>
+                   
+
+                </tr>
+              
+             </tbody>
+        </table>
+      </div>
+    </div>
+
+
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>
