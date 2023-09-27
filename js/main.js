@@ -129,6 +129,8 @@ submint.onclick=function(){
         count:count.value,
         category:category.value,
     };
+
+    //count 
     if(mood==='creat'){
     if(newpro.count>1){
         for(let i =0; i<newpro.count;i++){
