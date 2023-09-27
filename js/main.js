@@ -8,6 +8,9 @@ let count =document.getElementById('count');
 let category =document.getElementById('category');
 let submint =document.getElementById('submint');
 let search = document.getElementById('search');
+//update 
+let mood ='creat';
+let tmp;
 
 //game
 let black =document.getElementById('black');
@@ -126,6 +129,7 @@ submint.onclick=function(){
         count:count.value,
         category:category.value,
     };
+    if(mood==='creat'){
     if(newpro.count>1){
         for(let i =0; i<newpro.count;i++){
             datapro.push(newpro)
@@ -134,6 +138,11 @@ submint.onclick=function(){
     }else{
         datapro.push(newpro)
 
+    }}else{
+        datapro[tmp]=newpro;
+        mood='creat';
+        count.style.display='block';
+        submint.innerHTML='creat';
     }
 
     //save lockalstorge
@@ -170,7 +179,7 @@ function showdata(){
         <td>${datapro[i].discount}</td>
         <td>${datapro[i].count}</td>
         <td>${datapro[i].category}</td>
-        <td><button id="update">update</button></td>
+        <td><button onclick="updatedata(${i})" id="update">update</button></td>
         <td><button id="delete" onclick="deletedata(   ${i}   )">delete</button></td>
 
     </tr>
@@ -185,8 +194,8 @@ function showdata(){
     }
     else{
         btndelete.innerHTML='';
-    }
-
+    };
+    gettotal()
 
 }showdata()
 
@@ -204,6 +213,24 @@ function alldelete(){
 }
 //count 
 // update 
+function updatedata(i){
+    title.value=datapro[i].title;
+    price.value=datapro[i].price;
+    taxes.value=datapro[i].taxes;
+    ads.value=datapro[i].ads;
+    discount.value=datapro[i].discount;
+    gettotal()
+    category.value=datapro[i].category;
+    count.style.display='none';
+    submint.innerHTML='update';
+    tmp=i;
+    mood='update'
+    scroll({
+        top:0,
+        behavior:'smooth'
+    })
+    
+}
 //search 
 // clean data
  
