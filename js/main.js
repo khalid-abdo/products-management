@@ -164,7 +164,6 @@ submint.onclick=function(){
             mood='creat';
             count.style.display='block';
             submint.innerHTML='creat';
-
            
         }
         cleardata()
