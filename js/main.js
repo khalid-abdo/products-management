@@ -98,11 +98,28 @@ function gettotal(){
         - +discount.value;
         total.innerHTML=result;
         total.style.background='#040';
+        price.style.border='none'
     }else{
         total.innerHTML='';
         total.style.background='#a00d02';
     }
 
+}
+//دي علشان اخلي اول اما اكتب في الاين بت بتاعت التيتال والكاتيجوري يشيل علطول البوردر
+let tv = 'mo'
+function getborder(){
+    if(title.value!=''&& tv=='mo'){
+        title.style.border='none'
+        tv='go'
+       
+    }
+    else if(tv=='go'&&category.value!=''){
+        tv='mo'
+        category.style.border='none'
+       
+    }
+    
+   
 }
 
 //creat product
@@ -132,6 +149,7 @@ submint.onclick=function(){
 
     //count 
     if(title.value!=''&&price.value!=''&&category.value!=''&&newpro.count<=100){
+        // ودا علشان اول اما ادوس علي زرار الكريات ومكنتش كاتب حاجه في التيتال او الكاتيجوري او البريس ميعملش المنتج
         if(mood==='creat'){
         if(newpro.count>1){
             for(let i =0; i<newpro.count;i++){
@@ -152,6 +170,13 @@ submint.onclick=function(){
         cleardata()
        
         
+    }
+    else{
+        title.style.border='1px solid red'
+        price.style.border='1px solid red'
+        category.style.border='1px solid red'
+        
+        title.focus()
     }
    
 

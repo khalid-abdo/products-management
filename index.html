@@ -22,7 +22,7 @@
        
         
       <div class="input">
-        <input type="text" id="title" placeholder="title">
+        <input onkeyup="getborder()" type="text" id="title" placeholder="title">
         <div class="price">
             <input type="number" onkeyup="gettotal()" id="price" placeholder="price">
             <input type="number" onkeyup="gettotal()" id="taxes" placeholder="taxes" >
@@ -31,7 +31,7 @@
             <small id="total"></small>
         </div>
         <input type="number" id="count" placeholder="count">
-        <input type="text" id="category" placeholder="category">
+        <input onkeyup="getborder()" type="text" id="category" placeholder="category">
         <button id="submint">create</button>
 
 
