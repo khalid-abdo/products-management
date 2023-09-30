@@ -171,6 +171,9 @@ submint.onclick=function(){
        
         
     }
+    else if(title.value!=''&&price.value!=''&&category.value!=''){
+      
+    }
     else{
         title.style.border='1px solid red'
         price.style.border='1px solid red'
