@@ -120,37 +120,45 @@ if(localStorage.proudct != null){
 
 submint.onclick=function(){
     let newpro = {
-        title:title.value,
+        title:title.value.toLowerCase(),
         price:price.value,
         taxes:taxes.value,
         ads:ads.value,
         discount:discount.value,
         total:total.innerHTML,
         count:count.value,
-        category:category.value,
+        category:category.value.toLowerCase(),
     };
 
     //count 
-    if(mood==='creat'){
-    if(newpro.count>1){
-        for(let i =0; i<newpro.count;i++){
+    if(title.value!=''&&price.value!=''&&category.value!=''&&newpro.count<=100){
+        if(mood==='creat'){
+        if(newpro.count>1){
+            for(let i =0; i<newpro.count;i++){
+                datapro.push(newpro)
+
+            }
+        }else{
             datapro.push(newpro)
 
-        }
-    }else{
-        datapro.push(newpro)
+        }}else{
+            datapro[tmp]=newpro;
+            mood='creat';
+            count.style.display='block';
+            submint.innerHTML='creat';
 
-    }}else{
-        datapro[tmp]=newpro;
-        mood='creat';
-        count.style.display='block';
-        submint.innerHTML='creat';
+           
+        }
+        cleardata()
+       
+        
     }
+   
 
     //save lockalstorge
     
     localStorage.setItem('proudct', JSON.stringify(datapro) )
-    cleardata()
+   
     showdata()
 }
 
@@ -173,7 +181,7 @@ function showdata(){
     for (let i =0 ; i< datapro.length;i++ ){
         table += `
         <tr>
-        <td>${i}</td>
+        <td>${i+1}</td>
         <td>${datapro[i].title}</td>
         <td>${datapro[i].price}</td>
         <td>${datapro[i].taxes}</td>
@@ -234,5 +242,77 @@ function updatedata(i){
     
 }
 //search 
+let searchmood='title';
+//انا عملت المتغير دا علشان اعرف افرق بين التيتل والكاتيجوري لما احتاج اختار بينهم في الفينكشون التانيه 
+function getsearchmood(id){
+    let search=document.getElementById('search')
+    if(id=='searchTitle'){
+        searchmood='title';
+        
+    }
+    else{
+        searchmood='category';
+        
+    }
+    search.placeholder='search by '+searchmood;
+    search.focus()
+    search.value='';
+    showdata()
+}
+
+
+function searchdate(value){
+    let table='';
+    for(let i=0;i<datapro.length;i++){
+        if(searchmood=='title'){
+            
+                if(datapro[i].title.includes(value.toLowerCase())){
+                    table += `
+                    <tr>
+                    <td>${i}</td>
+                    <td>${datapro[i].title}</td>
+                    <td>${datapro[i].price}</td>
+                    <td>${datapro[i].taxes}</td>
+                    <td>${datapro[i].ads}</td>
+                    <td>${datapro[i].discount}</td>
+                    <td>${datapro[i].count}</td>
+                    <td>${datapro[i].category}</td>
+                    <td><button onclick="updatedata(${i})" id="update">update</button></td>
+                    <td><button id="delete" onclick="deletedata(   ${i}   )">delete</button></td>
+            
+                </tr>
+            
+                    `
+                
+            }
+        }
+
+        else{
+        
+                if(datapro[i].category.includes(value.toLowerCase())){
+                    table += `
+                    <tr>
+                    <td>${i}</td>
+                    <td>${datapro[i].title}</td>
+                    <td>${datapro[i].price}</td>
+                    <td>${datapro[i].taxes}</td>
+                    <td>${datapro[i].ads}</td>
+                    <td>${datapro[i].discount}</td>
+                    <td>${datapro[i].count}</td>
+                    <td>${datapro[i].category}</td>
+                    <td><button onclick="updatedata(${i})" id="update">update</button></td>
+                    <td><button id="delete" onclick="deletedata(   ${i}   )">delete</button></td>
+            
+                </tr>
+            
+                    `
+                }
+            
+        }
+        document.getElementById('tbody').innerHTML=table;
+        }
+
+    }
+
 // clean data
  
