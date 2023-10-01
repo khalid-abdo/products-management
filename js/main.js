@@ -106,21 +106,7 @@ function gettotal(){
 
 }
 //دي علشان اخلي اول اما اكتب في الاين بت بتاعت التيتال والكاتيجوري يشيل علطول البوردر
-let tv = 'mo'
-function getborder(){
-    if(title.value!=''&& tv=='mo'){
-        title.style.border='none'
-        tv='go'
-       
-    }
-    else if(tv=='go'&&category.value!=''){
-        tv='mo'
-        category.style.border='none'
-       
-    }
-    
-   
-}
+
 
 //creat product
 
@@ -170,16 +156,7 @@ submint.onclick=function(){
        
         
     }
-    else if(title.value!=''&&price.value!=''&&category.value!=''){
-      
-    }
-    else{
-        title.style.border='1px solid red'
-        price.style.border='1px solid red'
-        category.style.border='1px solid red'
-        
-        title.focus()
-    }
+    
    
 
     //save lockalstorge
